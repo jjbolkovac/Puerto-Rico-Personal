@@ -12,49 +12,82 @@
 :root{--sun:#FFD93D;--coral:#FF6B6B;--ink:#102028;--muted:#5c7680;}
 *{box-sizing:border-box}
 html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto}
-#wrap{display:grid;grid-template-columns:380px 1fr;height:100%}
+#wrap{display:grid;grid-template-columns:390px 1fr;height:100%}
 #sidebar{background:#fff;border-right:4px solid var(--sun);overflow:auto}
 #map{height:100%}
 
 header{padding:14px 16px;border-bottom:1px solid #eee}
 header h1{margin:0;font-size:18px}
-header p{margin:6px 0 0;color:var(--muted);font-size:12px;font-weight:700}
+header p{margin:6px 0 0;color:var(--muted);font-size:12px;font-weight:700;line-height:1.35}
 
-.day-tabs{display:flex;gap:6px;flex-wrap:wrap;padding:10px 12px;border-bottom:1px solid #eee;position:sticky;top:0;background:#fff;z-index:5}
-.day-btn{font-size:11px;font-weight:900;text-transform:uppercase;padding:7px 10px;border-radius:999px;border:2px solid #e6e6e6;background:#fff;cursor:pointer}
-.day-btn.on{background:#102028;color:#fff;border-color:#102028}
-
+.day-tabs{display:flex;gap:6px;flex-wrap:wrap;padding:10px 12px;border-bottom:1px solid #eee;background:#fff;position:sticky;top:0;z-index:5}
+.day-btn{font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;padding:7px 10px;border-radius:999px;border:2px solid #e6e6e6;background:#fff;color:#567;cursor:pointer}
+.day-btn.on{border-color:var(--ink);background:var(--ink);color:#fff}
 .plan-sub{padding:10px 16px 0;color:var(--muted);font-weight:800;font-size:12px}
 
 .list{padding:10px}
-.item{display:flex;gap:10px;border:1px solid #eee;border-radius:12px;padding:10px;margin-bottom:8px;cursor:pointer}
+.item{display:flex;gap:10px;border:1px solid #eee;border-radius:12px;padding:10px;margin-bottom:8px;cursor:pointer;align-items:flex-start}
 .item:hover{background:#f7fbff}
 .item.selected{outline:3px solid rgba(0,0,0,.08)}
 
-.num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-font-weight:900;color:#fff;border:3px solid #fff;box-shadow:0 6px 14px rgba(0,0,0,.18)}
+.num{width:32px;height:32px;min-width:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+font-weight:900;color:#fff;border:3px solid #fff;box-shadow:0 6px 14px rgba(0,0,0,.18);font-size:12px;line-height:1}
+.name{font-weight:900;font-size:13px;color:var(--ink)}
+.tag{font-size:12px;color:var(--muted);font-weight:700;margin-top:3px}
+.pill{display:inline-flex;gap:6px;align-items:center;margin-top:6px;padding:3px 8px;border-radius:999px;font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
 
+/* category colors */
+.c-beach{background:#0096C7} .c-cave{background:#6C5CE7} .c-lighthouse{background:#E07B54}
+.c-ferry{background:#00B4D8} .c-terminal{background:#0077B6} .c-viewpoint{background:#F9A826}
+.c-hotel{background:#9B59B6} .c-airport{background:#2D3436}
+
+.p-beach{background:#DBEEFF;color:#0077B6} .p-cave{background:#EFEAFF;color:#4C3FB3}
+.p-lighthouse{background:#FFE8D6;color:#7A3E0A} .p-ferry{background:#DFF9FF;color:#0077B6}
+.p-terminal{background:#DFF9FF;color:#0077B6} .p-viewpoint{background:#FFF3D6;color:#8A5A00}
+.p-hotel{background:#F5EEF8;color:#7D3C98} .p-airport{background:#ECEFF1;color:#263238}
+
+.special{display:inline-flex;gap:6px;align-items:center;margin-top:6px;padding:4px 10px;border-radius:999px;font-size:11px;font-weight:900}
+.special.overnight{background:rgba(155,89,182,.12);color:#6d3a85;border:2px solid rgba(155,89,182,.22)}
+.special.deadline{background:rgba(255,107,107,.12);color:#b33939;border:2px solid rgba(255,107,107,.22)}
+.special.sunset{background:rgba(249,168,38,.14);color:#8A5A00;border:2px solid rgba(249,168,38,.22)}
+
+/* MAP MARKERS */
 .mk{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;
 font-weight:900;color:#fff;border:3px solid #fff;box-shadow:0 6px 16px rgba(0,0,0,.25)}
 .mk.sel{outline:4px solid rgba(255,217,61,.95)}
-
-@keyframes bounce{0%{transform:translateY(0)}30%{transform:translateY(-16px)}50%{transform:translateY(0)}}
+@keyframes bounce{0%{transform:translateY(0)}30%{transform:translateY(-16px)}50%{transform:translateY(0)}70%{transform:translateY(-8px)}100%{transform:translateY(0)}}
 .mk.bounce{animation:bounce .6s ease}
 
+/* DRAWER */
 #detail{position:fixed;top:0;right:0;width:410px;height:100%;background:#fff;transform:translateX(100%);
-transition:transform .35s ease;box-shadow:-10px 0 30px rgba(0,0,0,.25);z-index:999}
+transition:transform .35s ease;box-shadow:-10px 0 30px rgba(0,0,0,.25);z-index:999;overflow:auto}
 #detail.open{transform:translateX(0)}
-#close-detail{position:absolute;top:12px;right:12px;background:#FF6B6B;color:#fff;border:none;
-width:34px;height:34px;border-radius:50%;font-weight:900;cursor:pointer}
+#close-detail{position:absolute;top:12px;right:12px;background:var(--coral);color:#fff;border:none;width:34px;height:34px;border-radius:50%;font-weight:900;cursor:pointer}
+.hero{padding:18px;border-bottom:3px dashed #eee}
+.hero-top{display:flex;gap:10px;align-items:flex-start}
+.hero-num{width:42px;height:42px;min-width:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+font-weight:900;color:#fff;border:3px solid #fff;box-shadow:0 6px 16px rgba(0,0,0,.18)}
+.hero-cat{font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.hero-name{font-size:22px;font-weight:900;margin:4px 0;color:var(--ink)}
+.hero-tag{font-size:14px;color:#555;font-style:italic;line-height:1.35}
+.section{padding:14px 16px;border-bottom:1px dashed #eee}
+.section h3{margin:0 0 6px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.section p,.section li{font-size:14px;line-height:1.65}
+.section ul{list-style:none;padding-left:0;margin:0}
+.section li{padding-left:18px;position:relative;margin:6px 0}
+.section li::before{content:'🌴';position:absolute;left:0}
+.btnlink{display:inline-flex;gap:8px;align-items:center;margin-top:10px;padding:10px 12px;border-radius:999px;border:none;cursor:pointer;
+background:#102028;color:#fff;font-weight:900;text-decoration:none}
+.btnlink:hover{opacity:.92}
+.smallnote{font-size:12px;color:var(--muted);font-weight:700}
 </style>
 </head>
-
 <body>
 <div id="wrap">
   <div id="sidebar">
     <header>
       <h1>Puerto Rico — Trip Map</h1>
-      <p>Numbered exactly in the order you’ll hit them.<br>
+      <p>Numbers are the stop order for the selected day/tab. Click a stop (list or map) to open the right drawer.<br/>
       🛌 May 30: Punta Borinquen • 🛌 May 31: El Combate • ⏰ Jun 1: Ferry by 3:00 PM</p>
     </header>
     <div class="day-tabs" id="dayTabs"></div>
@@ -70,106 +103,198 @@ width:34px;height:34px;border-radius:50%;font-weight:900;cursor:pointer}
 </div>
 
 <script>
-/* ---------- DATA ---------- */
+const STOPS = [{"id": 1, "name": "Cueva del Indio (Alternativa)", "cat": "cave", "lat": 18.492778, "lng": -66.641667, "tag": "Seaside cave & cliffs", "url": "https://www.google.com/maps/place/Cueva+del+Indio+(Alternativa)/data=!4m2!3m1!1s0x8c02e100291c89bd:0x3edadbf183e88a5e"}, {"id": 2, "name": "La Poza del Obispo", "cat": "beach", "lat": 18.481694, "lng": -66.696831, "tag": "Natural rock pool / beach", "url": "https://www.google.com/maps/place/La+Poza+del+Obispo/data=!4m2!3m1!1s0x8c02e127614111ab:0xdd8efba4ed11123"}, {"id": 3, "name": "Luichy's Seaside Hotel at Playa El Combate", "cat": "hotel", "lat": 17.97741, "lng": -67.21098, "tag": "Overnight stay", "url": "https://www.google.com/maps/place/Luichy's+Seaside+Hotel+at+Playa+El+Combate/data=!4m2!3m1!1s0x8c1d5012b3dd731d:0x502624eb70304a5", "special": {"type": "overnight", "label": "Overnight — May 31", "detail": "Stay overnight here on May 31."}}, {"id": 4, "name": "Faro Punta Higueras", "cat": "lighthouse", "lat": 18.362028, "lng": -67.270972, "tag": "Rincón lighthouse & views", "url": "https://www.google.com/maps/place/Faro+Punta+Higueras/data=!4m2!3m1!1s0x8c02a5c51daa3279:0x9363bb4eafe62beb"}, {"id": 5, "name": "Buyé Beach", "cat": "beach", "lat": 18.048611, "lng": -67.198611, "tag": "Calm Caribbean beach", "url": "https://www.google.com/maps/place/Buy%C3%A9+Beach/data=!4m2!3m1!1s0x8c1d51f97a988193:0xd06acba09aacc915"}, {"id": 6, "name": "Ferry to Culebra & Vieques", "cat": "ferry", "lat": 18.22806, "lng": -65.61972, "tag": "Must arrive by 3:00 PM (Jun 1)", "url": "https://www.google.com/maps/place/Ferry+to+Culebra+%26+Vieques/data=!4m2!3m1!1s0x8c04bd6599e583ef:0xa6ec4a88c91753eb", "special": {"type": "deadline", "label": "Arrive by 3:00 PM — Jun 1", "detail": "Must arrive no later than 3:00 PM on June 1."}}, {"id": 7, "name": "Cueva de las Golondrinas", "cat": "cave", "lat": 18.4779518, "lng": -66.5092752, "tag": "Sea cave / cove", "url": "https://www.google.com/maps/place/Cueva+de+las+golondrinas/data=!4m2!3m1!1s0x8c031908ceef2e27:0xb4e210ae63a93712"}, {"id": 8, "name": "Ceiba Ferry Terminal", "cat": "terminal", "lat": 18.22806, "lng": -65.61972, "tag": "Mainland ferry terminal", "url": "https://www.google.com/maps/place/Ceiba+Ferry+Terminal/data=!4m2!3m1!1s0x8c04bd1e36438011:0xa124cf9d7d9c945c"}, {"id": 9, "name": "Playa Sucia", "cat": "beach", "lat": 17.936172, "lng": -67.188252, "tag": "Playuela (Cabo Rojo)", "url": "https://www.google.com/maps/place/Playa+Sucia/data=!4m2!3m1!1s0x8c1d4534aa45aa91:0xbfbf68c411a19c3c"}, {"id": 10, "name": "Mirador Salinas de Cabo Rojo", "cat": "viewpoint", "lat": 17.95675, "lng": -67.19913, "tag": "Salt flats viewpoint (sunset)", "url": "https://www.google.com/maps/place/Mirador+Salinas+de+Cabo+Rojo/data=!4m2!3m1!1s0x8c1d5aaf07dc9417:0x4488e2b00d261134", "special": {"type": "sunset", "label": "Sunset pick", "detail": "Great sunset spot."}}, {"id": 11, "name": "Playa Escalera — Reserva Marina Tres Palmas", "cat": "beach", "lat": 18.35, "lng": -67.264, "tag": "Steps Beach (Tres Palmas)", "url": "https://www.google.com/maps/place/Playa+Escalera+-+Reserva+Marina+Tres+Palmas/data=!4m2!3m1!1s0x8c02a5ebab756885:0x76d6ea953ba1c619"}, {"id": 12, "name": "Punta Borinquen Resort", "cat": "hotel", "lat": 18.5026235, "lng": -67.1405549, "tag": "Overnight stay", "url": "https://www.google.com/maps/place/Punta+Borinquen+Resort/data=!4m2!3m1!1s0x8c02962d23282179:0xb8617135bf937440", "special": {"type": "overnight", "label": "Overnight — May 30", "detail": "Stay overnight here on May 30."}}, {"id": 13, "name": "Crash Boat Beach", "cat": "beach", "lat": 18.458392, "lng": -67.164863, "tag": "Aguadilla beach & pier", "url": "https://www.google.com/maps/place/Crash+Boat+Beach/data=!4m2!3m1!1s0x8c02bd18c7e9af05:0xbd927de3237db2ee"}, {"id": 14, "name": "Playa Las Golondrinas", "cat": "beach", "lat": 18.5141, "lng": -67.0566, "tag": "Natural tidal pool", "url": "https://www.google.com/maps/place/Playa+Las+Golondrinas/data=!4m2!3m1!1s0x8c03193814cb28cd:0x5c6626e8b6f800e2"}, {"id": 15, "name": "Pozo de Jacinto", "cat": "cave", "lat": 18.515, "lng": -67.073877, "tag": "Famous blowhole", "url": "https://www.google.com/maps/place/Pozo+De+Jacinto/data=!4m2!3m1!1s0x8c0295c6facd940d:0x6e3f7a411207e105"}, {"id": 16, "name": "Mar Chiquita Beach", "cat": "beach", "lat": 18.47205, "lng": -66.48193, "tag": "Natural pool beach", "url": "https://www.google.com/maps/place/Mar+Chiquita+Beach/data=!4m2!3m1!1s0x8c03190d991034bd:0xa70da56f50b71f5c"}, {"id": 17, "name": "Luis Muñoz Marín International Airport (SJU)", "cat": "airport", "lat": 18.43917, "lng": -66.00194, "tag": "Arrive / pick up car", "url": "https://www.google.com/maps/place/Luis+Munoz+Marin+International+Airport/data=!4m2!3m1!1s0x8c0365d810d79007:0x157ef258ddd32b70"}];
+const DAY = {"all": {"label": "All", "subtitle": "Full trip order (May 30 → May 31 → Jun 1)", "order": [17, 16, 7, 1, 2, 15, 14, 13, 12, 11, 4, 5, 9, 10, 3, 8, 6]}, "may30": {"label": "May 30", "subtitle": "Arrival → Overnight #1 (Punta Borinquen)", "order": [17, 16, 7, 1, 2, 15, 14, 13, 12]}, "may31": {"label": "May 31", "subtitle": "West Coast → Sunset → Overnight #2 (El Combate)", "order": [12, 11, 4, 5, 9, 10, 3]}, "jun1": {"label": "Jun 1", "subtitle": "Direct to ferry (no backtracking)", "order": [3, 8, 6]}};
 
-const STOPS = [
-  {id:1,name:"Cueva del Indio",lat:18.492778,lng:-66.641667},
-  {id:2,name:"La Poza del Obispo",lat:18.481694,lng:-66.696831},
-  {id:3,name:"Luichy’s Seaside Hotel (El Combate)",lat:17.97741,lng:-67.21098},
-  {id:4,name:"Faro Punta Higueras",lat:18.362028,lng:-67.270972},
-  {id:5,name:"Buyé Beach",lat:18.048611,lng:-67.198611},
-  {id:6,name:"Ferry to Culebra & Vieques",lat:18.22806,lng:-65.61972},
-  {id:7,name:"Cueva de las Golondrinas",lat:18.477952,lng:-66.509275},
-  {id:8,name:"Ceiba Ferry Terminal",lat:18.22806,lng:-65.61972},
-  {id:9,name:"Playa Sucia",lat:17.936172,lng:-67.188252},
-  {id:10,name:"Mirador Salinas de Cabo Rojo",lat:17.95675,lng:-67.19913},
-  {id:11,name:"Playa Escalera (Steps)",lat:18.35,lng:-67.264},
-  {id:12,name:"Punta Borinquen Resort",lat:18.502624,lng:-67.140555},
-  {id:13,name:"Crash Boat Beach",lat:18.458392,lng:-67.164863},
-  {id:14,name:"Playa Las Golondrinas",lat:18.5141,lng:-67.0566},
-  {id:15,name:"Pozo de Jacinto",lat:18.515,lng:-67.073877},
-  {id:16,name:"Mar Chiquita Beach",lat:18.47205,lng:-66.48193},
-  {id:17,name:"SJU Airport",lat:18.43917,lng:-66.00194}
-];
-
-const DAY = {
-  may30:{
-    label:"May 30",
-    subtitle:"Arrival → Overnight #1 (Punta Borinquen)",
-    order:[17,16,7,1,2,15,14,13,12]
-  },
-  may31:{
-    label:"May 31",
-    subtitle:"West Coast → Sunset → Overnight #2 (El Combate)",
-    order:[12,11,4,5,9,10,3]
-  },
-  jun1:{
-    label:"Jun 1",
-    subtitle:"Direct to ferry (no backtracking)",
-    order:[3,8,6]
-  }
+const CAT = {
+  beach: {label:'Beach', emoji:'🏖️', color:'#0096C7'},
+  cave: {label:'Cave', emoji:'🕳️', color:'#6C5CE7'},
+  lighthouse: {label:'Lighthouse', emoji:'🗼', color:'#E07B54'},
+  ferry: {label:'Ferry', emoji:'⛴️', color:'#00B4D8'},
+  terminal: {label:'Terminal', emoji:'🧾', color:'#0077B6'},
+  viewpoint: {label:'Viewpoint', emoji:'👀', color:'#F9A826'},
+  hotel: {label:'Overnight', emoji:'🏨', color:'#9B59B6'},
+  airport: {label:'Airport', emoji:'✈️', color:'#2D3436'},
 };
 
-/* ---------- MAP ---------- */
-
-const map = L.map("map",{center:[18.2,-66.45],zoom:9});
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19}).addTo(map);
-
 const stopById = new Map(STOPS.map(s=>[s.id,s]));
-const markers = new Map();
-let activeDay="may30";
+let activeDayKey = 'may30';
+let selectedId = null;
 
-function stepNum(id){
-  const i = DAY[activeDay].order.indexOf(id);
-  return i>=0 ? i+1 : "";
+const map = L.map('map', { center:[18.2, -66.45], zoom:9 });
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '© OpenStreetMap contributors' }).addTo(map);
+
+const markers = new Map();
+
+function stepNumber(id){
+  const idx = DAY[activeDayKey].order.indexOf(id);
+  return idx >= 0 ? String(idx+1) : '';
 }
 
-function icon(id){
+function mkIcon(stop, selected=false, bounce=false){
+  const cat = CAT[stop.cat] || {color:'#444'};
+  const cls = ['mk'];
+  if(selected) cls.push('sel');
+  if(bounce) cls.push('bounce');
+  const num = stepNumber(stop.id);
   return L.divIcon({
-    html:`<div class="mk">${stepNum(id)}</div>`,
-    iconSize:[36,36],iconAnchor:[18,18]
+    className:'',
+    html:`<div class="${cls.join(' ')}" style="background:${cat.color}">${num}</div>`,
+    iconSize:[36,36],
+    iconAnchor:[18,18]
   });
 }
 
+// create markers once
 STOPS.forEach(s=>{
-  const m = L.marker([s.lat,s.lng]).addTo(map);
-  markers.set(s.id,m);
+  const m = L.marker([s.lat, s.lng], { icon: mkIcon(s,false,false) }).addTo(map);
+  markers.set(s.id, m);
+  m.on('click', ()=>openDetail(s));
 });
 
-function applyDay(){
-  DAY[activeDay].order.forEach(id=>{
-    const m = markers.get(id);
-    m.addTo(map);
-    m.setIcon(icon(id));
-  });
+// fit bounds once
+const bounds = L.latLngBounds(STOPS.map(s => [s.lat, s.lng]));
+map.fitBounds(bounds.pad(0.12));
+
+function applyDayFilter(){
+  const ids = new Set(DAY[activeDayKey].order);
   markers.forEach((m,id)=>{
-    if(!DAY[activeDay].order.includes(id)) map.removeLayer(m);
+    if(ids.has(id)){
+      if(!map.hasLayer(m)) m.addTo(map);
+      const s = stopById.get(id);
+      m.setIcon(mkIcon(s, id===selectedId, false));
+    } else {
+      if(map.hasLayer(m)) map.removeLayer(m);
+    }
   });
-  renderList();
+}
+
+function renderTabs(){
+  const host = document.getElementById('dayTabs');
+  host.innerHTML='';
+  const keys = ['may30','may31','jun1','all'];
+  keys.forEach(k=>{
+    const b = document.createElement('button');
+    b.className = 'day-btn' + (activeDayKey===k ? ' on' : '');
+    b.textContent = DAY[k].label;
+    b.onclick = ()=>{
+      activeDayKey = k;
+      host.querySelectorAll('.day-btn').forEach(x=>x.classList.remove('on'));
+      b.classList.add('on');
+      document.getElementById('planSubtitle').textContent = DAY[k].subtitle;
+      selectedId = null;
+      applyDayFilter();
+      renderList();
+    };
+    host.appendChild(b);
+  });
+  document.getElementById('planSubtitle').textContent = DAY[activeDayKey].subtitle;
 }
 
 function renderList(){
-  const list=document.getElementById("list");
-  list.innerHTML="";
-  DAY[activeDay].order.forEach(id=>{
-    const s=stopById.get(id);
-    const row=document.createElement("div");
-    row.className="item";
-    row.innerHTML=`<div class="num">${stepNum(id)}</div><div>${s.name}</div>`;
+  const list = document.getElementById('list');
+  list.innerHTML='';
+  DAY[activeDayKey].order.forEach(id=>{
+    const s = stopById.get(id);
+    const cat = CAT[s.cat];
+    const row = document.createElement('div');
+    row.className = 'item' + (id===selectedId ? ' selected' : '');
+
+    let specialHtml = '';
+    if(s.special){
+      const icon = s.special.type==='overnight' ? '🛌' : (s.special.type==='deadline' ? '⏰' : '🌅');
+      specialHtml = `<div class="special ${s.special.type}">${icon} ${s.special.label}</div>`;
+    }
+
+    row.innerHTML = `
+      <div class="num c-${s.cat}">${stepNumber(id)}</div>
+      <div style="flex:1">
+        <div class="name">${cat.emoji} ${s.name}</div>
+        <div class="tag">${s.tag}</div>
+        <span class="pill p-${s.cat}">${cat.label}</span>
+        ${specialHtml}
+      </div>
+    `;
+
+    row.onclick = ()=>openDetail(s);
     list.appendChild(row);
   });
 }
 
-const tabs=document.getElementById("dayTabs");
-Object.keys(DAY).forEach(k=>{
-  const b=document.createElement("button");
-  b.className="day-btn"+(k===activeDay?" on":"");
-  b.textContent=DAY[k].label;
-  b.onclick=()=>{activeDay=k;tabs.querySelectorAll(".day-btn").forEach(x=>x.classList.remove("on"));b.classList.add("on");applyDay();};
-  tabs.appendChild(b);
-});
+function setSelected(id){
+  selectedId = id;
+  applyDayFilter();
+  // add bounce effect to selected marker
+  const s = stopById.get(id);
+  const m = markers.get(id);
+  if(m){
+    m.setIcon(mkIcon(s,true,true));
+    setTimeout(()=>m.setIcon(mkIcon(s,true,false)), 650);
+  }
+  renderList();
+}
 
-applyDay();
+function renderDetail(s){
+  const cat = CAT[s.cat];
+  const special = s.special ? `<div class="special ${s.special.type}" style="margin-top:10px;">${s.special.type==='overnight'?'🛌':(s.special.type==='deadline'?'⏰':'🌅')} ${s.special.label}<br/><span style="font-weight:800;opacity:.9">${s.special.detail}</span></div>` : '';
+
+  document.getElementById('detail-content').innerHTML = `
+    <div class="hero" style="background:linear-gradient(135deg,${cat.color}18,${cat.color}08)">
+      <div class="hero-top">
+        <div class="hero-num" style="background:${cat.color}">${stepNumber(s.id)}</div>
+        <div>
+          <div class="hero-cat">${cat.emoji} ${cat.label.toUpperCase()}</div>
+          <div class="hero-name">${s.name}</div>
+          <div class="hero-tag">${s.tag}</div>
+          ${special}
+          <a class="btnlink" href="${s.url}" target="_blank" rel="noopener">🗺️ Open in Google Maps</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Coordinates</h3>
+      <p style="font-family:monospace;color:#666;">${Number(s.lat).toFixed(6)}, ${Number(s.lng).toFixed(6)}</p>
+    </div>
+
+    <div class="section">
+      <h3>Trip Anchors</h3>
+      <ul>
+        <li>May 30 overnight: Punta Borinquen Resort</li>
+        <li>May 31 overnight: Luichy's Seaside Hotel (El Combate)</li>
+        <li>Jun 1: Ferry by 3:00 PM</li>
+      </ul>
+    </div>
+  `;
+}
+
+function openDetail(s){
+  setSelected(s.id);
+  map.flyTo([s.lat, s.lng], 12, {animate:true, duration:0.8});
+  renderDetail(s);
+  document.getElementById('detail').classList.add('open');
+}
+
+function closeDetail(){ document.getElementById('detail').classList.remove('open'); }
+document.getElementById('close-detail').onclick = closeDetail;
+
+// click outside to close
+(function(){
+  const detail = document.getElementById('detail');
+  let justOpened = false;
+  const _open = openDetail;
+  openDetail = function(s){ justOpened=true; setTimeout(()=>justOpened=false,0); return _open(s); }
+  document.addEventListener('click', (e)=>{
+    if(!detail.classList.contains('open')) return;
+    if(justOpened) return;
+    if(detail.contains(e.target)) return;
+    closeDetail();
+  });
+})();
+
+renderTabs();
+applyDayFilter();
+renderList();
 </script>
 </body>
 </html>
