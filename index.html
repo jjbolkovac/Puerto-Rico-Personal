@@ -18,11 +18,12 @@ html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Robo
 
 header{padding:14px 16px;border-bottom:1px solid #eee}
 header h1{margin:0;font-size:18px}
-header p{margin:6px 0 0;color:var(--muted);font-size:12px;font-weight:700;line-height:1.35}
+header p{margin:6px 0 0;color:var(--muted);font-size:12px;font-weight:700}
 
 .day-tabs{display:flex;gap:6px;flex-wrap:wrap;padding:10px 12px;border-bottom:1px solid #eee;position:sticky;top:0;background:#fff;z-index:5}
-.day-btn{font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;padding:7px 10px;border-radius:999px;border:2px solid #e6e6e6;background:#fff;color:#567;cursor:pointer}
-.day-btn.on{border-color:var(--ink);background:var(--ink);color:#fff}
+.day-btn{font-size:11px;font-weight:900;text-transform:uppercase;padding:7px 10px;border-radius:999px;border:2px solid #e6e6e6;background:#fff;cursor:pointer}
+.day-btn.on{background:#102028;color:#fff;border-color:#102028}
+
 .plan-sub{padding:10px 16px 0;color:var(--muted);font-weight:800;font-size:12px}
 
 .list{padding:10px}
@@ -30,56 +31,21 @@ header p{margin:6px 0 0;color:var(--muted);font-size:12px;font-weight:700;line-h
 .item:hover{background:#f7fbff}
 .item.selected{outline:3px solid rgba(0,0,0,.08)}
 
-.num{width:32px;height:32px;min-width:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-font-weight:900;color:#fff;border:3px solid #fff;box-shadow:0 6px 14px rgba(0,0,0,.18);font-size:12px}
-
-.name{font-weight:900;font-size:13px;color:var(--ink)}
-.tag{font-size:12px;color:var(--muted);font-weight:700;margin-top:3px}
-
-.pill{display:inline-flex;gap:6px;align-items:center;margin-top:6px;padding:3px 8px;border-radius:999px;font-size:10px;font-weight:900;text-transform:uppercase}
-
-.c-beach{background:#0096C7}.c-cave{background:#6C5CE7}.c-lighthouse{background:#E07B54}
-.c-ferry{background:#00B4D8}.c-terminal{background:#0077B6}.c-viewpoint{background:#F9A826}
-.c-hotel{background:#9B59B6}.c-airport{background:#2D3436}
-
-.p-beach{background:#DBEEFF;color:#0077B6}.p-cave{background:#EFEAFF;color:#4C3FB3}
-.p-lighthouse{background:#FFE8D6;color:#7A3E0A}.p-ferry{background:#DFF9FF;color:#0077B6}
-.p-terminal{background:#DFF9FF;color:#0077B6}.p-viewpoint{background:#FFF3D6;color:#8A5A00}
-.p-hotel{background:#F5EEF8;color:#7D3C98}.p-airport{background:#ECEFF1;color:#263238}
-
-.special{display:inline-flex;gap:6px;align-items:center;margin-top:6px;padding:4px 10px;border-radius:999px;font-size:11px;font-weight:900}
-.special.overnight{background:rgba(155,89,182,.12);color:#6d3a85;border:2px solid rgba(155,89,182,.22)}
-.special.deadline{background:rgba(255,107,107,.12);color:#b33939;border:2px solid rgba(255,107,107,.22)}
-.special.sunset{background:rgba(249,168,38,.14);color:#8A5A00;border:2px solid rgba(249,168,38,.22)}
+.num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+font-weight:900;color:#fff;border:3px solid #fff;box-shadow:0 6px 14px rgba(0,0,0,.18)}
 
 .mk{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;
 font-weight:900;color:#fff;border:3px solid #fff;box-shadow:0 6px 16px rgba(0,0,0,.25)}
 .mk.sel{outline:4px solid rgba(255,217,61,.95)}
 
-@keyframes bounce{0%{transform:translateY(0)}30%{transform:translateY(-16px)}50%{transform:translateY(0)}70%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+@keyframes bounce{0%{transform:translateY(0)}30%{transform:translateY(-16px)}50%{transform:translateY(0)}}
 .mk.bounce{animation:bounce .6s ease}
 
 #detail{position:fixed;top:0;right:0;width:410px;height:100%;background:#fff;transform:translateX(100%);
-transition:transform .35s ease;box-shadow:-10px 0 30px rgba(0,0,0,.25);z-index:999;overflow:auto}
+transition:transform .35s ease;box-shadow:-10px 0 30px rgba(0,0,0,.25);z-index:999}
 #detail.open{transform:translateX(0)}
-#close-detail{position:absolute;top:12px;right:12px;background:var(--coral);color:#fff;border:none;
+#close-detail{position:absolute;top:12px;right:12px;background:#FF6B6B;color:#fff;border:none;
 width:34px;height:34px;border-radius:50%;font-weight:900;cursor:pointer}
-
-.hero{padding:18px;border-bottom:3px dashed #eee}
-.hero-top{display:flex;gap:10px}
-.hero-num{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-font-weight:900;color:#fff;border:3px solid #fff}
-.hero-cat{font-size:11px;font-weight:900;text-transform:uppercase;color:var(--muted)}
-.hero-name{font-size:22px;font-weight:900;margin:4px 0}
-.hero-tag{font-size:14px;color:#555;font-style:italic}
-
-.section{padding:14px 16px;border-bottom:1px dashed #eee}
-.section h3{margin:0 0 6px;font-size:11px;text-transform:uppercase;color:var(--muted)}
-.section li{padding-left:18px;position:relative;margin:6px 0}
-.section li::before{content:'🌴';position:absolute;left:0}
-
-.btnlink{display:inline-flex;gap:8px;align-items:center;margin-top:10px;padding:10px 12px;border-radius:999px;
-background:#102028;color:#fff;font-weight:900;text-decoration:none}
 </style>
 </head>
 
@@ -88,7 +54,7 @@ background:#102028;color:#fff;font-weight:900;text-decoration:none}
   <div id="sidebar">
     <header>
       <h1>Puerto Rico — Trip Map</h1>
-      <p>Numbered exactly in driving order per day.<br/>
+      <p>Numbered exactly in the order you’ll hit them.<br>
       🛌 May 30: Punta Borinquen • 🛌 May 31: El Combate • ⏰ Jun 1: Ferry by 3:00 PM</p>
     </header>
     <div class="day-tabs" id="dayTabs"></div>
@@ -104,72 +70,63 @@ background:#102028;color:#fff;font-weight:900;text-decoration:none}
 </div>
 
 <script>
-/* ---------------- DATA ---------------- */
+/* ---------- DATA ---------- */
 
 const STOPS = [
-  {id:1,name:"Cueva del Indio (Alternativa)",cat:"cave",lat:18.492778,lng:-66.641667,tag:"Seaside cave & cliffs",url:"https://www.google.com/maps/place/Cueva+del+Indio+(Alternativa)"},
-  {id:2,name:"La Poza del Obispo",cat:"beach",lat:18.481694,lng:-66.696831,tag:"Natural rock pool",url:"https://www.google.com/maps/place/La+Poza+del+Obispo"},
-  {id:3,name:"Luichy's Seaside Hotel – El Combate",cat:"hotel",lat:17.97741,lng:-67.21098,tag:"Overnight stay",url:"https://www.google.com/maps/place/Luichy's+Seaside+Hotel+at+Playa+El+Combate",
-   special:{type:"overnight",label:"Overnight — May 31",detail:"Stay overnight here on May 31."}},
-  {id:4,name:"Faro Punta Higueras",cat:"lighthouse",lat:18.362028,lng:-67.270972,tag:"Rincón lighthouse",url:"https://www.google.com/maps/place/Faro+Punta+Higueras"},
-  {id:5,name:"Buyé Beach",cat:"beach",lat:18.048611,lng:-67.198611,tag:"Calm Caribbean beach",url:"https://www.google.com/maps/place/Buy%C3%A9+Beach"},
-  {id:6,name:"Ferry to Culebra & Vieques",cat:"ferry",lat:18.22806,lng:-65.61972,tag:"Time‑critical arrival",
-   url:"https://www.google.com/maps/place/Ferry+to+Culebra+%26+Vieques",
-   special:{type:"deadline",label:"Arrive by 3:00 PM — Jun 1",detail:"Must arrive no later than 3:00 PM."}},
-  {id:7,name:"Cueva de las Golondrinas",cat:"cave",lat:18.477952,lng:-66.509275,tag:"Sea cave",url:"https://www.google.com/maps/place/Cueva+de+las+golondrinas"},
-  {id:8,name:"Ceiba Ferry Terminal",cat:"terminal",lat:18.22806,lng:-65.61972,tag:"Mainland ferry terminal",url:"https://www.google.com/maps/place/Ceiba+Ferry+Terminal"},
-  {id:9,name:"Playa Sucia (La Playuela)",cat:"beach",lat:17.936172,lng:-67.188252,tag:"Cabo Rojo",url:"https://www.google.com/maps/place/Playa+Sucia"},
-  {id:10,name:"Mirador Salinas de Cabo Rojo",cat:"viewpoint",lat:17.95675,lng:-67.19913,tag:"Best sunset spot",
-   url:"https://www.google.com/maps/place/Mirador+Salinas+de+Cabo+Rojo",
-   special:{type:"sunset",label:"Sunset pick",detail:"One of the best sunset views on the island."}},
-  {id:11,name:"Playa Escalera (Steps Beach)",cat:"beach",lat:18.35,lng:-67.264,tag:"Tres Palmas Reserve",url:"https://www.google.com/maps/place/Playa+Escalera"},
-  {id:12,name:"Punta Borinquen Resort",cat:"hotel",lat:18.502624,lng:-67.140555,tag:"Overnight stay",
-   url:"https://www.google.com/maps/place/Punta+Borinquen+Resort",
-   special:{type:"overnight",label:"Overnight — May 30",detail:"Stay overnight here on May 30."}},
-  {id:13,name:"Crash Boat Beach",cat:"beach",lat:18.458392,lng:-67.164863,tag:"Aguadilla pier beach",url:"https://www.google.com/maps/place/Crash+Boat+Beach"},
-  {id:14,name:"Playa Las Golondrinas",cat:"beach",lat:18.5141,lng:-67.0566,tag:"Natural tidal pool",url:"https://www.google.com/maps/place/Playa+Las+Golondrinas"},
-  {id:15,name:"Pozo de Jacinto",cat:"cave",lat:18.515,lng:-67.073877,tag:"Famous blowhole",url:"https://www.google.com/maps/place/Pozo+De+Jacinto"},
-  {id:16,name:"Mar Chiquita Beach",cat:"beach",lat:18.47205,lng:-66.48193,tag:"Natural pool beach",url:"https://www.google.com/maps/place/Mar+Chiquita+Beach"},
-  {id:17,name:"SJU Airport",cat:"airport",lat:18.43917,lng:-66.00194,tag:"Arrival",url:"https://www.google.com/maps/place/Luis+Munoz+Marin+International+Airport"}
+  {id:1,name:"Cueva del Indio",lat:18.492778,lng:-66.641667},
+  {id:2,name:"La Poza del Obispo",lat:18.481694,lng:-66.696831},
+  {id:3,name:"Luichy’s Seaside Hotel (El Combate)",lat:17.97741,lng:-67.21098},
+  {id:4,name:"Faro Punta Higueras",lat:18.362028,lng:-67.270972},
+  {id:5,name:"Buyé Beach",lat:18.048611,lng:-67.198611},
+  {id:6,name:"Ferry to Culebra & Vieques",lat:18.22806,lng:-65.61972},
+  {id:7,name:"Cueva de las Golondrinas",lat:18.477952,lng:-66.509275},
+  {id:8,name:"Ceiba Ferry Terminal",lat:18.22806,lng:-65.61972},
+  {id:9,name:"Playa Sucia",lat:17.936172,lng:-67.188252},
+  {id:10,name:"Mirador Salinas de Cabo Rojo",lat:17.95675,lng:-67.19913},
+  {id:11,name:"Playa Escalera (Steps)",lat:18.35,lng:-67.264},
+  {id:12,name:"Punta Borinquen Resort",lat:18.502624,lng:-67.140555},
+  {id:13,name:"Crash Boat Beach",lat:18.458392,lng:-67.164863},
+  {id:14,name:"Playa Las Golondrinas",lat:18.5141,lng:-67.0566},
+  {id:15,name:"Pozo de Jacinto",lat:18.515,lng:-67.073877},
+  {id:16,name:"Mar Chiquita Beach",lat:18.47205,lng:-66.48193},
+  {id:17,name:"SJU Airport",lat:18.43917,lng:-66.00194}
 ];
 
 const DAY = {
-  all:{label:"All",subtitle:"All destinations",order:STOPS.map(s=>s.id)},
-  may30:{label:"May 30",subtitle:"Arrival → Overnight #1 (Punta Borinquen)",order:[17,16,7,1,2,15,14,13,12]},
-  may31:{label:"May 31",subtitle:"West Coast → Sunset → Overnight #2 (El Combate)",order:[12,11,4,5,9,10,3]},
-  jun1:{label:"Jun 1",subtitle:"On the way → Ferry by 3:00 PM",order:[3,16,7,8,6]}
+  may30:{
+    label:"May 30",
+    subtitle:"Arrival → Overnight #1 (Punta Borinquen)",
+    order:[17,16,7,1,2,15,14,13,12]
+  },
+  may31:{
+    label:"May 31",
+    subtitle:"West Coast → Sunset → Overnight #2 (El Combate)",
+    order:[12,11,4,5,9,10,3]
+  },
+  jun1:{
+    label:"Jun 1",
+    subtitle:"Direct to ferry (no backtracking)",
+    order:[3,8,6]
+  }
 };
 
-/* ---------------- MAP LOGIC ---------------- */
-
-const CAT = {
-  beach:{emoji:"🏖️",color:"#0096C7"}, cave:{emoji:"🕳️",color:"#6C5CE7"},
-  lighthouse:{emoji:"🗼",color:"#E07B54"}, ferry:{emoji:"⛴️",color:"#00B4D8"},
-  terminal:{emoji:"🧾",color:"#0077B6"}, viewpoint:{emoji:"👀",color:"#F9A826"},
-  hotel:{emoji:"🏨",color:"#9B59B6"}, airport:{emoji:"✈️",color:"#2D3436"}
-};
-
-const stopById = new Map(STOPS.map(s=>[s.id,s]));
-let activeDay = "may30";
-let selectedId = null;
+/* ---------- MAP ---------- */
 
 const map = L.map("map",{center:[18.2,-66.45],zoom:9});
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19}).addTo(map);
 
+const stopById = new Map(STOPS.map(s=>[s.id,s]));
 const markers = new Map();
+let activeDay="may30";
 
-function stepNumber(id){
-  const idx = DAY[activeDay].order.indexOf(id);
-  return idx >= 0 ? idx+1 : "";
+function stepNum(id){
+  const i = DAY[activeDay].order.indexOf(id);
+  return i>=0 ? i+1 : "";
 }
 
-function mkIcon(stop,selected=false){
-  const step = stepNumber(stop.id);
-  const cls = ["mk"];
-  if(selected) cls.push("sel");
+function icon(id){
   return L.divIcon({
-    className:"",
-    html:`<div class="${cls.join(" ")}" style="background:${CAT[stop.cat].color}">${step}</div>`,
+    html:`<div class="mk">${stepNum(id)}</div>`,
     iconSize:[36,36],iconAnchor:[18,18]
   });
 }
@@ -177,62 +134,34 @@ function mkIcon(stop,selected=false){
 STOPS.forEach(s=>{
   const m = L.marker([s.lat,s.lng]).addTo(map);
   markers.set(s.id,m);
-  m.on("click",()=>openDetail(s));
 });
 
 function applyDay(){
-  const ids = DAY[activeDay].order;
+  DAY[activeDay].order.forEach(id=>{
+    const m = markers.get(id);
+    m.addTo(map);
+    m.setIcon(icon(id));
+  });
   markers.forEach((m,id)=>{
-    if(ids.includes(id)){
-      m.addTo(map);
-      m.setIcon(mkIcon(stopById.get(id),id===selectedId));
-    } else map.removeLayer(m);
+    if(!DAY[activeDay].order.includes(id)) map.removeLayer(m);
   });
   renderList();
 }
 
 function renderList(){
-  const list = document.getElementById("list");
+  const list=document.getElementById("list");
   list.innerHTML="";
   DAY[activeDay].order.forEach(id=>{
-    const s = stopById.get(id);
-    const row = document.createElement("div");
-    row.className="item"+(id===selectedId?" selected":"");
-    row.innerHTML=`
-      <div class="num c-${s.cat}">${stepNumber(id)}</div>
-      <div>
-        <div class="name">${CAT[s.cat].emoji} ${s.name}</div>
-        <div class="tag">${s.tag}</div>
-      </div>`;
-    row.onclick=()=>openDetail(s);
+    const s=stopById.get(id);
+    const row=document.createElement("div");
+    row.className="item";
+    row.innerHTML=`<div class="num">${stepNum(id)}</div><div>${s.name}</div>`;
     list.appendChild(row);
   });
 }
 
-function openDetail(s){
-  selectedId=s.id;
-  applyDay();
-  map.flyTo([s.lat,s.lng],12);
-  document.getElementById("detail").classList.add("open");
-  document.getElementById("detail-content").innerHTML=`
-    <div class="hero">
-      <div class="hero-top">
-        <div class="hero-num" style="background:${CAT[s.cat].color}">${stepNumber(s.id)}</div>
-        <div>
-          <div class="hero-cat">${CAT[s.cat].emoji} ${s.cat.toUpperCase()}</div>
-          <div class="hero-name">${s.name}</div>
-          <div class="hero-tag">${s.tag}</div>
-          <a class="btnlink" href="${s.url}" target="_blank">🗺️ Open in Google Maps</a>
-        </div>
-      </div>
-    </div>`;
-}
-
-document.getElementById("close-detail").onclick=()=>document.getElementById("detail").classList.remove("open");
-
-/* Tabs */
 const tabs=document.getElementById("dayTabs");
-["may30","may31","jun1","all"].forEach(k=>{
+Object.keys(DAY).forEach(k=>{
   const b=document.createElement("button");
   b.className="day-btn"+(k===activeDay?" on":"");
   b.textContent=DAY[k].label;
