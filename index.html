@@ -97,7 +97,7 @@ background:#102028;color:#fff;font-weight:900;text-decoration:none}
   <div id="sidebar">
     <header>
       <h1>Puerto Rico — Destinations</h1>
-      <p>Same UI as the Vieques map: numbered list • numbered markers • right-side detail drawer.<br/>
+      <p>Numbered list • numbered markers • right-side detail drawer.<br/>
       🛌 Overnights: May 30 + May 31 • ⏰ Ferry deadline: arrive by 3:00 PM on June 1</p>
     </header>
     <div class="list" id="list"></div>
@@ -111,7 +111,7 @@ background:#102028;color:#fff;font-weight:900;text-decoration:none}
 </div>
 
 <script>
-const STOPS = [{"id": 1, "name": "Cueva del Indio (Alternativa)", "cat": "cave", "lat": 18.492778, "lng": -66.641667, "tag": "Seaside cave & cliffs", "url": "https://www.google.com/maps/place/Cueva+del+Indio+(Alternativa)/data=!4m2!3m1!1s0x8c02e100291c89bd:0x3edadbf183e88a5e", "note": "Coordinates based on Cueva del Indio (Arecibo) reference point."}, {"id": 2, "name": "La Poza del Obispo", "cat": "beach", "lat": 18.481694, "lng": -66.696831, "tag": "Natural rock pool / beach", "url": "https://www.google.com/maps/place/La+Poza+del+Obispo/data=!4m2!3m1!1s0x8c02e127614111ab:0xdd8efba4ed11123"}, {"id": 3, "name": "Luichy's Seaside Hotel at Playa El Combate", "cat": "hotel", "lat": 17.97741, "lng": -67.21098, "tag": "Overnight stay", "url": "https://www.google.com/maps/place/Luichy's+Seaside+Hotel+at+Playa+El+Combate/data=!4m2!3m1!1s0x8c1d5012b3dd731d:0x502624eb70304a5", "special": {"type": "overnight", "label": "Overnight — May 31", "detail": "Stay overnight here on May 31."}}, {"id": 4, "name": "Faro Punta Higueras", "cat": "lighthouse", "lat": 18.362028, "lng": -67.270972, "tag": "Rincón lighthouse & views", "url": "https://www.google.com/maps/place/Faro+Punta+Higueras/data=!4m2!3m1!1s0x8c02a5c51daa3279:0x9363bb4eafe62beb"}, {"id": 5, "name": "Buyé Beach", "cat": "beach", "lat": 18.048611, "lng": -67.198611, "tag": "Calm Caribbean beach", "url": "https://www.google.com/maps/place/Buy%C3%A9+Beach/data=!4m2!3m1!1s0x8c1d51f97a988193:0xd06acba09aacc915"}, {"id": 6, "name": "Ferry to Culebra & Vieques", "cat": "ferry", "lat": 18.22806, "lng": -65.61972, "tag": "Time-critical arrival", "url": "https://www.google.com/maps/place/Ferry+to+Culebra+%26+Vieques/data=!4m2!3m1!1s0x8c04bd6599e583ef:0xa6ec4a88c91753eb", "special": {"type": "deadline", "label": "Arrive by 3:00 PM — Jun 1", "detail": "Must arrive no later than 3:00 PM on June 1."}}, {"id": 7, "name": "Cueva de las golondrinas", "cat": "cave", "lat": 18.4779518, "lng": -66.5092752, "tag": "Sea cave / cove", "url": "https://www.google.com/maps/place/Cueva+de+las+golondrinas/data=!4m2!3m1!1s0x8c031908ceef2e27:0xb4e210ae63a93712"}, {"id": 8, "name": "Ceiba Ferry Terminal", "cat": "terminal", "lat": 18.22806, "lng": -65.61972, "tag": "Mainland ferry terminal", "url": "https://www.google.com/maps/place/Ceiba+Ferry+Terminal/data=!4m2!3m1!1s0x8c04bd1e36438011:0xa124cf9d7d9c945c"}, {"id": 9, "name": "Playa Sucia", "cat": "beach", "lat": 17.936172, "lng": -67.188252, "tag": "Playuela (Cabo Rojo)", "url": "https://www.google.com/maps/place/Playa+Sucia/data=!4m2!3m1!1s0x8c1d4534aa45aa91:0xbfbf68c411a19c3c"}, {"id": 10, "name": "Mirador Salinas de Cabo Rojo", "cat": "viewpoint", "lat": 17.95675, "lng": -67.19913, "tag": "Salt flats viewpoint", "url": "https://www.google.com/maps/place/Mirador+Salinas+de+Cabo+Rojo/data=!4m2!3m1!1s0x8c1d5aaf07dc9417:0x4488e2b00d261134"}, {"id": 11, "name": "Playa Escalera - Reserva Marina Tres Palmas", "cat": "beach", "lat": 18.35, "lng": -67.264, "tag": "Steps Beach (Tres Palmas)", "url": "https://www.google.com/maps/place/Playa+Escalera+-+Reserva+Marina+Tres+Palmas/data=!4m2!3m1!1s0x8c02a5ebab756885:0x76d6ea953ba1c619", "note": "Coordinates rounded as provided by lat/long listings."}, {"id": 12, "name": "Punta Borinquen Resort", "cat": "hotel", "lat": 18.478554, "lng": -67.168793, "tag": "Overnight stay", "url": "https://www.google.com/maps/place/Punta+Borinquen+Resort/data=!4m2!3m1!1s0x8c02962d23282179:0xb8617135bf937440", "special": {"type": "overnight", "label": "Overnight — May 30", "detail": "Stay overnight here on May 30."}, "approx": true, "note": "Approximate marker: using Punta Borinquen cape reference point (closest open coordinate source found)."}, {"id": 13, "name": "Crash Boat Beach", "cat": "beach", "lat": 18.458392, "lng": -67.164863, "tag": "Aguadilla beach & pier", "url": "https://www.google.com/maps/place/Crash+Boat+Beach/data=!4m2!3m1!1s0x8c02bd18c7e9af05:0xbd927de3237db2ee"}, {"id": 14, "name": "Playa Las Golondrinas", "cat": "beach", "lat": 18.5141, "lng": -67.0566, "tag": "Natural tidal pool", "url": "https://www.google.com/maps/place/Playa+Las+Golondrinas/data=!4m2!3m1!1s0x8c03193814cb28cd:0x5c6626e8b6f800e2"}, {"id": 15, "name": "Pozo De Jacinto", "cat": "cave", "lat": 18.515, "lng": -67.073877, "tag": "Famous blowhole", "url": "https://www.google.com/maps/place/Pozo+De+Jacinto/data=!4m2!3m1!1s0x8c0295c6facd940d:0x6e3f7a411207e105"}, {"id": 16, "name": "Mar Chiquita Beach", "cat": "beach", "lat": 18.47205, "lng": -66.48193, "tag": "Natural pool beach", "url": "https://www.google.com/maps/place/Mar+Chiquita+Beach/data=!4m2!3m1!1s0x8c03190d991034bd:0xa70da56f50b71f5c"}, {"id": 17, "name": "Luis Munoz Marin International Airport", "cat": "airport", "lat": 18.43917, "lng": -66.00194, "tag": "SJU airport", "url": "https://www.google.com/maps/place/Luis+Munoz+Marin+International+Airport/data=!4m2!3m1!1s0x8c0365d810d79007:0x157ef258ddd32b70"}];
+const STOPS = [{"id": 1, "name": "Cueva del Indio (Alternativa)", "cat": "cave", "lat": 18.492778, "lng": -66.641667, "tag": "Seaside cave & cliffs", "url": "https://www.google.com/maps/place/Cueva+del+Indio+(Alternativa)/data=!4m2!3m1!1s0x8c02e100291c89bd:0x3edadbf183e88a5e", "note": "Coordinates based on Cueva del Indio (Arecibo) reference point."}, {"id": 2, "name": "La Poza del Obispo", "cat": "beach", "lat": 18.481694, "lng": -66.696831, "tag": "Natural rock pool / beach", "url": "https://www.google.com/maps/place/La+Poza+del+Obispo/data=!4m2!3m1!1s0x8c02e127614111ab:0xdd8efba4ed11123"}, {"id": 3, "name": "Luichy's Seaside Hotel at Playa El Combate", "cat": "hotel", "lat": 17.97741, "lng": -67.21098, "tag": "Overnight stay", "url": "https://www.google.com/maps/place/Luichy's+Seaside+Hotel+at+Playa+El+Combate/data=!4m2!3m1!1s0x8c1d5012b3dd731d:0x502624eb70304a5", "special": {"type": "overnight", "label": "Overnight — May 31", "detail": "Stay overnight here on May 31."}}, {"id": 4, "name": "Faro Punta Higueras", "cat": "lighthouse", "lat": 18.362028, "lng": -67.270972, "tag": "Rincón lighthouse & views", "url": "https://www.google.com/maps/place/Faro+Punta+Higueras/data=!4m2!3m1!1s0x8c02a5c51daa3279:0x9363bb4eafe62beb"}, {"id": 5, "name": "Buyé Beach", "cat": "beach", "lat": 18.048611, "lng": -67.198611, "tag": "Calm Caribbean beach", "url": "https://www.google.com/maps/place/Buy%C3%A9+Beach/data=!4m2!3m1!1s0x8c1d51f97a988193:0xd06acba09aacc915"}, {"id": 6, "name": "Ferry to Culebra & Vieques", "cat": "ferry", "lat": 18.22806, "lng": -65.61972, "tag": "Time-critical arrival", "url": "https://www.google.com/maps/place/Ferry+to+Culebra+%26+Vieques/data=!4m2!3m1!1s0x8c04bd6599e583ef:0xa6ec4a88c91753eb", "special": {"type": "deadline", "label": "Arrive by 3:00 PM — Jun 1", "detail": "Must arrive no later than 3:00 PM on June 1."}}, {"id": 7, "name": "Cueva de las golondrinas", "cat": "cave", "lat": 18.4779518, "lng": -66.5092752, "tag": "Sea cave / cove", "url": "https://www.google.com/maps/place/Cueva+de+las+golondrinas/data=!4m2!3m1!1s0x8c031908ceef2e27:0xb4e210ae63a93712"}, {"id": 8, "name": "Ceiba Ferry Terminal", "cat": "terminal", "lat": 18.22806, "lng": -65.61972, "tag": "Mainland ferry terminal", "url": "https://www.google.com/maps/place/Ceiba+Ferry+Terminal/data=!4m2!3m1!1s0x8c04bd1e36438011:0xa124cf9d7d9c945c"}, {"id": 9, "name": "Playa Sucia", "cat": "beach", "lat": 17.936172, "lng": -67.188252, "tag": "Playuela (Cabo Rojo)", "url": "https://www.google.com/maps/place/Playa+Sucia/data=!4m2!3m1!1s0x8c1d4534aa45aa91:0xbfbf68c411a19c3c"}, {"id": 10, "name": "Mirador Salinas de Cabo Rojo", "cat": "viewpoint", "lat": 17.95675, "lng": -67.19913, "tag": "Salt flats viewpoint", "url": "https://www.google.com/maps/place/Mirador+Salinas+de+Cabo+Rojo/data=!4m2!3m1!1s0x8c1d5aaf07dc9417:0x4488e2b00d261134"}, {"id": 11, "name": "Playa Escalera - Reserva Marina Tres Palmas", "cat": "beach", "lat": 18.35, "lng": -67.264, "tag": "Steps Beach (Tres Palmas)", "url": "https://www.google.com/maps/place/Playa+Escalera+-+Reserva+Marina+Tres+Palmas/data=!4m2!3m1!1s0x8c02a5ebab756885:0x76d6ea953ba1c619", "note": "Coordinates rounded as provided by lat/long listings."}, {"id": 12, "name": "Punta Borinquen Resort", "cat": "hotel", "lat": 18.5026235, "lng": -67.1405549, "tag": "Overnight stay", "url": "https://www.google.com/maps/place/Punta+Borinquen+Resort/data=!4m2!3m1!1s0x8c02962d23282179:0xb8617135bf937440", "special": {"type": "overnight", "label": "Overnight — May 30", "detail": "Stay overnight here on May 30."}, "note": "Exact coordinates provided from the shared Google Maps pin.", "mapsPinUrl": "https://www.google.com/maps/place/Punta+Borinquen+Resort/@18.5026235,-67.1405549,661m/data=!3m2!1e3!4b1!4m9!3m8!1s0x8c02962d23282179:0xb8617135bf937440!5m2!4m1!1i2!8m2!3d18.5026235!4d-67.1405549!16s%2Fg%2F11c6vgth4x?entry=ttu&g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D"}, {"id": 13, "name": "Crash Boat Beach", "cat": "beach", "lat": 18.458392, "lng": -67.164863, "tag": "Aguadilla beach & pier", "url": "https://www.google.com/maps/place/Crash+Boat+Beach/data=!4m2!3m1!1s0x8c02bd18c7e9af05:0xbd927de3237db2ee"}, {"id": 14, "name": "Playa Las Golondrinas", "cat": "beach", "lat": 18.5141, "lng": -67.0566, "tag": "Natural tidal pool", "url": "https://www.google.com/maps/place/Playa+Las+Golondrinas/data=!4m2!3m1!1s0x8c03193814cb28cd:0x5c6626e8b6f800e2"}, {"id": 15, "name": "Pozo De Jacinto", "cat": "cave", "lat": 18.515, "lng": -67.073877, "tag": "Famous blowhole", "url": "https://www.google.com/maps/place/Pozo+De+Jacinto/data=!4m2!3m1!1s0x8c0295c6facd940d:0x6e3f7a411207e105"}, {"id": 16, "name": "Mar Chiquita Beach", "cat": "beach", "lat": 18.47205, "lng": -66.48193, "tag": "Natural pool beach", "url": "https://www.google.com/maps/place/Mar+Chiquita+Beach/data=!4m2!3m1!1s0x8c03190d991034bd:0xa70da56f50b71f5c"}, {"id": 17, "name": "Luis Munoz Marin International Airport", "cat": "airport", "lat": 18.43917, "lng": -66.00194, "tag": "SJU airport", "url": "https://www.google.com/maps/place/Luis+Munoz+Marin+International+Airport/data=!4m2!3m1!1s0x8c0365d810d79007:0x157ef258ddd32b70"}];
 
 const CAT = {
   beach: {label:'Beach', emoji:'🏖️', color:'#0096C7'},
@@ -127,7 +127,6 @@ const CAT = {
 let selectedId = null;
 const markers = new Map();
 
-// Map
 const map = L.map('map', { center:[18.2, -66.45], zoom:9, zoomControl:true });
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '© OpenStreetMap contributors' }).addTo(map);
 
@@ -144,7 +143,6 @@ function mkIcon(stop, selected=false, bounce=false){
   });
 }
 
-// Create markers
 STOPS.forEach(s=>{
   const m = L.marker([s.lat, s.lng], { icon: mkIcon(s,false,false) }).addTo(map);
   markers.set(s.id, m);
@@ -152,7 +150,6 @@ STOPS.forEach(s=>{
   m.on('click', ()=> openDetail(s));
 });
 
-// Fit bounds
 const bounds = L.latLngBounds(STOPS.map(s => [s.lat, s.lng]));
 map.fitBounds(bounds.pad(0.12));
 
@@ -200,7 +197,8 @@ function setSelected(id){
 function renderDetail(s){
   const cat = CAT[s.cat] || {label:'Stop', emoji:'📍', color:'#444'};
   const special = s.special ? `<div class="special ${s.special.type}" style="margin-top:10px;">${s.special.type==='overnight'?'🛌':'⏰'} ${s.special.label}<br/><span style="font-weight:800;opacity:.9">${s.special.detail}</span></div>` : '';
-  const approx = s.approx ? `<div class="special" style="background:rgba(0,0,0,.06);color:#444;border:2px solid rgba(0,0,0,.08);margin-top:10px;">⚠️ Approximate pin<br/><span style="font-weight:800;opacity:.9">${s.note||'This marker is an approximation.'}</span></div>` : (s.note ? `<div class="smallnote" style="margin-top:10px;">${s.note}</div>` : '');
+  const note = s.note ? `<div class="smallnote" style="margin-top:10px;">${s.note}</div>` : '';
+  const pinLink = s.mapsPinUrl ? `<a class="btnlink" href="${s.mapsPinUrl}" target="_blank" rel="noopener">📍 Open exact pin</a>` : '';
 
   document.getElementById('detail-content').innerHTML = `
     <div class="hero" style="background:linear-gradient(135deg,${cat.color}18,${cat.color}08)">
@@ -211,8 +209,9 @@ function renderDetail(s){
           <div class="hero-name">${s.name}</div>
           <div class="hero-tag">${s.tag}</div>
           ${special}
-          ${approx}
+          ${note}
           <a class="btnlink" href="${s.url}" target="_blank" rel="noopener">🗺️ Open in Google Maps</a>
+          ${pinLink}
         </div>
       </div>
     </div>
@@ -244,7 +243,6 @@ function closeDetail(){ document.getElementById('detail').classList.remove('open
 
 document.getElementById('close-detail').onclick = closeDetail;
 
-// click outside to close
 (function(){
   const detail = document.getElementById('detail');
   let justOpened = false;
