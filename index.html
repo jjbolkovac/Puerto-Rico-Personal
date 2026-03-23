@@ -15,58 +15,42 @@ html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Robo
 #wrap{display:grid;grid-template-columns:390px 1fr;height:100%}
 #sidebar{background:#fff;border-right:4px solid var(--sun);overflow:auto}
 #map{height:100%}
-
 header{padding:14px 16px;border-bottom:1px solid #eee}
 header h1{margin:0;font-size:18px}
 header p{margin:6px 0 0;color:var(--muted);font-size:12px;font-weight:700;line-height:1.35}
-
 .day-tabs{display:flex;gap:6px;flex-wrap:wrap;padding:10px 12px;border-bottom:1px solid #eee;background:#fff;position:sticky;top:0;z-index:5}
 .day-btn{font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;padding:7px 10px;border-radius:999px;border:2px solid #e6e6e6;background:#fff;color:#567;cursor:pointer}
 .day-btn.on{border-color:var(--ink);background:var(--ink);color:#fff}
 .plan-sub{padding:10px 16px 0;color:var(--muted);font-weight:800;font-size:12px}
-
 .list{padding:10px}
 .item{display:flex;gap:10px;border:1px solid #eee;border-radius:12px;padding:10px;margin-bottom:8px;cursor:pointer;align-items:flex-start}
 .item:hover{background:#f7fbff}
 .item.selected{outline:3px solid rgba(0,0,0,.08)}
-
-.num{width:32px;height:32px;min-width:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-font-weight:900;color:#fff;border:3px solid #fff;box-shadow:0 6px 14px rgba(0,0,0,.18);font-size:12px;line-height:1}
+.num{width:32px;height:32px;min-width:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;border:3px solid #fff;box-shadow:0 6px 14px rgba(0,0,0,.18);font-size:12px;line-height:1}
 .name{font-weight:900;font-size:13px;color:var(--ink)}
 .tag{font-size:12px;color:var(--muted);font-weight:700;margin-top:3px}
 .pill{display:inline-flex;gap:6px;align-items:center;margin-top:6px;padding:3px 8px;border-radius:999px;font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
-
-/* category colors */
 .c-beach{background:#0096C7} .c-cave{background:#6C5CE7} .c-lighthouse{background:#E07B54}
 .c-ferry{background:#00B4D8} .c-terminal{background:#0077B6} .c-viewpoint{background:#F9A826}
 .c-hotel{background:#9B59B6} .c-airport{background:#2D3436}
-
 .p-beach{background:#DBEEFF;color:#0077B6} .p-cave{background:#EFEAFF;color:#4C3FB3}
 .p-lighthouse{background:#FFE8D6;color:#7A3E0A} .p-ferry{background:#DFF9FF;color:#0077B6}
 .p-terminal{background:#DFF9FF;color:#0077B6} .p-viewpoint{background:#FFF3D6;color:#8A5A00}
 .p-hotel{background:#F5EEF8;color:#7D3C98} .p-airport{background:#ECEFF1;color:#263238}
-
 .special{display:inline-flex;gap:6px;align-items:center;margin-top:6px;padding:4px 10px;border-radius:999px;font-size:11px;font-weight:900}
 .special.overnight{background:rgba(155,89,182,.12);color:#6d3a85;border:2px solid rgba(155,89,182,.22)}
 .special.deadline{background:rgba(255,107,107,.12);color:#b33939;border:2px solid rgba(255,107,107,.22)}
 .special.sunset{background:rgba(249,168,38,.14);color:#8A5A00;border:2px solid rgba(249,168,38,.22)}
-
-/* MAP MARKERS */
-.mk{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-font-weight:900;color:#fff;border:3px solid #fff;box-shadow:0 6px 16px rgba(0,0,0,.25)}
+.mk{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;border:3px solid #fff;box-shadow:0 6px 16px rgba(0,0,0,.25)}
 .mk.sel{outline:4px solid rgba(255,217,61,.95)}
 @keyframes bounce{0%{transform:translateY(0)}30%{transform:translateY(-16px)}50%{transform:translateY(0)}70%{transform:translateY(-8px)}100%{transform:translateY(0)}}
 .mk.bounce{animation:bounce .6s ease}
-
-/* DRAWER */
-#detail{position:fixed;top:0;right:0;width:410px;height:100%;background:#fff;transform:translateX(100%);
-transition:transform .35s ease;box-shadow:-10px 0 30px rgba(0,0,0,.25);z-index:999;overflow:auto}
+#detail{position:fixed;top:0;right:0;width:410px;height:100%;background:#fff;transform:translateX(100%);transition:transform .35s ease;box-shadow:-10px 0 30px rgba(0,0,0,.25);z-index:999;overflow:auto}
 #detail.open{transform:translateX(0)}
 #close-detail{position:absolute;top:12px;right:12px;background:var(--coral);color:#fff;border:none;width:34px;height:34px;border-radius:50%;font-weight:900;cursor:pointer}
 .hero{padding:18px;border-bottom:3px dashed #eee}
 .hero-top{display:flex;gap:10px;align-items:flex-start}
-.hero-num{width:42px;height:42px;min-width:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-font-weight:900;color:#fff;border:3px solid #fff;box-shadow:0 6px 16px rgba(0,0,0,.18)}
+.hero-num{width:42px;height:42px;min-width:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;border:3px solid #fff;box-shadow:0 6px 16px rgba(0,0,0,.18)}
 .hero-cat{font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .hero-name{font-size:22px;font-weight:900;margin:4px 0;color:var(--ink)}
 .hero-tag{font-size:14px;color:#555;font-style:italic;line-height:1.35}
@@ -76,8 +60,9 @@ font-weight:900;color:#fff;border:3px solid #fff;box-shadow:0 6px 16px rgba(0,0,
 .section ul{list-style:none;padding-left:0;margin:0}
 .section li{padding-left:18px;position:relative;margin:6px 0}
 .section li::before{content:'🌴';position:absolute;left:0}
-.btnlink{display:inline-flex;gap:8px;align-items:center;margin-top:10px;padding:10px 12px;border-radius:999px;border:none;cursor:pointer;
-background:#102028;color:#fff;font-weight:900;text-decoration:none}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.btnlink{display:inline-flex;gap:8px;align-items:center;padding:10px 12px;border-radius:999px;border:none;cursor:pointer;background:#102028;color:#fff;font-weight:900;text-decoration:none}
+.btnlink.secondary{background:#f1f4f6;color:#102028}
 .btnlink:hover{opacity:.92}
 .smallnote{font-size:12px;color:var(--muted);font-weight:700}
 </style>
@@ -131,6 +116,13 @@ function stepNumber(id){
   return idx >= 0 ? String(idx+1) : '';
 }
 
+function appleMapsUrl(stop){
+  // Apple Maps web URL works on iOS/macOS and falls back in browsers.
+  // Use ll for coordinates and q for name.
+  const q = encodeURIComponent(stop.name);
+  return `https://maps.apple.com/?ll=${stop.lat},${stop.lng}&q=${q}`;
+}
+
 function mkIcon(stop, selected=false, bounce=false){
   const cat = CAT[stop.cat] || {color:'#444'};
   const cls = ['mk'];
@@ -145,14 +137,12 @@ function mkIcon(stop, selected=false, bounce=false){
   });
 }
 
-// create markers once
 STOPS.forEach(s=>{
   const m = L.marker([s.lat, s.lng], { icon: mkIcon(s,false,false) }).addTo(map);
   markers.set(s.id, m);
   m.on('click', ()=>openDetail(s));
 });
 
-// fit bounds once
 const bounds = L.latLngBounds(STOPS.map(s => [s.lat, s.lng]));
 map.fitBounds(bounds.pad(0.12));
 
@@ -224,7 +214,6 @@ function renderList(){
 function setSelected(id){
   selectedId = id;
   applyDayFilter();
-  // add bounce effect to selected marker
   const s = stopById.get(id);
   const m = markers.get(id);
   if(m){
@@ -247,7 +236,10 @@ function renderDetail(s){
           <div class="hero-name">${s.name}</div>
           <div class="hero-tag">${s.tag}</div>
           ${special}
-          <a class="btnlink" href="${s.url}" target="_blank" rel="noopener">🗺️ Open in Google Maps</a>
+          <div class="btnrow">
+            <a class="btnlink" href="${s.url}" target="_blank" rel="noopener">🗺️ Google Maps</a>
+            <a class="btnlink secondary" href="${appleMapsUrl(s)}" target="_blank" rel="noopener">🍎 Apple Maps</a>
+          </div>
         </div>
       </div>
     </div>
@@ -278,7 +270,6 @@ function openDetail(s){
 function closeDetail(){ document.getElementById('detail').classList.remove('open'); }
 document.getElementById('close-detail').onclick = closeDetail;
 
-// click outside to close
 (function(){
   const detail = document.getElementById('detail');
   let justOpened = false;
